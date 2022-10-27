@@ -20,24 +20,24 @@ def register_price(app):
     """functionalizes price callbacks into app.py"""
 
     @app.callback(
-        Output("price-ref", "children"),
-        Input("product-switcher", "value"))
+        Output('price-ref', 'children'),
+        Input('product-switcher', 'value'))
     def update_price(product_id_selection):
         """calls Exchange Get Product Ticker endpoint for price data"""
-        denomination = product_id_selection.split("-")[1]
+        denomination = product_id_selection.split('-')[1]
 
-        now = datetime.now().strftime("%H:%M:%S")
-        if "06:00:00" < now < "12:00:00":
-            now = "Good morning"
-        elif now < "18:00:00":
-            now = "Good afternoon"
+        now = datetime.now().strftime('%H:%M:%S')
+        if '06:00:00' < now < '12:00:00':
+            now = 'Good morning'
+        elif now < '18:00:00':
+            now = 'Good afternoon'
         else:
-            now = "Good evening"
+            now = 'Good evening'
 
-        url = f"https://api.exchange.coinbase.com/products/{product_id_selection}/ticker"
-        headers = {"Accept": "application/json"}
+        url = f'https://api.exchange.coinbase.com/products/{product_id_selection}/ticker'
+        headers = {'Accept': 'application/json'}
         response = requests.get(url, headers=headers)
         parse = json.loads(response.text)
-        price_val = parse["price"]
+        price_val = parse['price']
 
-        return f"{now}. The price of {product_id_selection} is {price_val} {denomination}."
+        return f'{now}. The price of {product_id_selection} is {price_val} {denomination}.'

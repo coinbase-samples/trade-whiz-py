@@ -9,7 +9,7 @@ All scripts are written in Python and tested with version 3.8.9.
 Simply clone the repo from your terminal window with the below command.
 
 ```bash
-git clone https://github.com/jc-cb/insto-trading-app-py
+git clone https://github.com/coinbase-samples/trade-whiz-py
 ```
 
 In order to run this, you will need to be running at least Python 3.8 so that you can install some key dependencies. To install dependencies, run the following: 
@@ -29,4 +29,4 @@ You can now run the program with the below command, which will open the applicat
 python app.py
 ```
 
-For information around Dash, please visit their [documentation](https://dash.plotly.com/introduction). 
+For more information around Dash, please visit their [Github](https://github.com/plotly/dash) and [documentation](https://dash.plotly.com/introduction). 
