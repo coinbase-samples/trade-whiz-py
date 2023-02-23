@@ -65,6 +65,8 @@ layout = html.Div(
         ),
         html.Button('Submit', id='submit-button', n_clicks=0),
         html.Div(id='buy-sell-response', style={'padding-top': 10}),
+        dcc.Interval(id='timer', interval=3000),
+
     ],
     style={'padding': 30, 'flex': 1, 'font-family': 'Inter'},
 )

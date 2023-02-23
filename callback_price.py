@@ -21,8 +21,10 @@ def register_price(app):
 
     @app.callback(
         Output('price-ref', 'children'),
-        Input('product-switcher', 'value'))
-    def update_price(product_id_selection):
+        Input('product-switcher', 'value'),
+        Input('timer', 'n_intervals'),
+    )
+    def update_price(product_id_selection,n_intervals):
         """calls Exchange Get Product Ticker endpoint for price data"""
         denomination = product_id_selection.split('-')[1]
 

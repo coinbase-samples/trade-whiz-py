@@ -35,13 +35,12 @@ def create_dataframe(parse):
     )
     df = df.loc[::-1].reset_index(drop=True)
     df['diff'] = df['price_close'] - df['price_open']
-    df['rsi'] = momentum.rsi(df['price_close'], window=14, fillna=False)
     df.loc[df['diff'] >= 0, 'color'] = 'green'
     df.loc[df['diff'] < 0, 'color'] = 'red'
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s')
-    df['rsi'] = momentum.rsi(df['price_close'], window=14, fillna=False)
     df['MA20'] = df['price_close'].rolling(window=20).mean()
     df['MA7'] = df['price_close'].rolling(window=7).mean()
+    df['rsi'] = momentum.rsi(df['price_close'], window=14, fillna=False)
     return df
 
 
@@ -151,8 +150,9 @@ def register_graph(app):
         Output('product-chart', 'figure'),
         Input('product-switcher', 'value'),
         Input('gran-switcher', 'value'),
+        Input('timer', 'n_intervals'),
     )
-    def update_output(product_id_selection, granularity_selection):
+    def update_output(product_id_selection, granularity_selection, n_intervals):
         """updates Plotly candlestick chart on UI product and granularity inputs"""
         url = f'https://api.exchange.coinbase.com/products/{product_id_selection}/candles?granularity={str(granularity_selection)}'
         headers = {'Accept': 'application/json'}

@@ -3,7 +3,7 @@
 This is a single page trading application built for Coinbase Prime using Dash, an open source framework for building Python data apps.  
 
 All scripts are written in Python and tested with version 3.8.9.
-![figure](assets/app.png)
+> ![figure](assets/app.png)
 ## Installation
 
 Simply clone the repo from your terminal window with the below command.
