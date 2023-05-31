@@ -1,4 +1,4 @@
-# Copyright 2022 Coinbase Global, Inc.
+# Copyright 2022-present Coinbase Global, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -65,6 +65,8 @@ layout = html.Div(
         ),
         html.Button('Submit', id='submit-button', n_clicks=0),
         html.Div(id='buy-sell-response', style={'padding-top': 10}),
+        dcc.Interval(id='timer', interval=10000),
+
     ],
     style={'padding': 30, 'flex': 1, 'font-family': 'Inter'},
 )
